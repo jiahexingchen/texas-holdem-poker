@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="140" height="190" xmlns="http://www.w3.org/2000/svg">
+  <!-- Card background -->
+  <rect x="1" y="1" width="138" height="188" 
+        rx="10" ry="10" 
+        fill="#FFFFFF" stroke="#CCCCCC" stroke-width="1"/>
+  
+  <!-- Top-left rank -->
+  <text x="8" y="28" font-family="Arial, sans-serif" font-size="22" 
+        font-weight="bold" fill="#CC1111">10</text>
+  
+  <!-- Top-left suit -->
+  <text x="10" y="50" font-family="Arial, sans-serif" font-size="20" 
+        fill="#CC1111">♦</text>
+  
+  <!-- Center suit (large) -->
+  <text x="70" y="115" 
+        font-family="Arial, sans-serif" font-size="60" 
+        text-anchor="middle" fill="#CC1111">♦</text>
+  
+  <!-- Bottom-right rank (rotated) -->
+  <g transform="rotate(180 70 95)">
+    <text x="8" y="28" font-family="Arial, sans-serif" font-size="22" 
+          font-weight="bold" fill="#CC1111">10</text>
+    <text x="10" y="50" font-family="Arial, sans-serif" font-size="20" 
+          fill="#CC1111">♦</text>
+  </g>
+</svg>

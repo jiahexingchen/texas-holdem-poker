@@ -1,0 +1,22 @@
+# Unity
+client/Library/
+client/Temp/
+client/Logs/
+client/UserSettings/
+client/Builds/
+*.csproj
+*.sln
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Build
+builds/
+*.apk
+*.ipa

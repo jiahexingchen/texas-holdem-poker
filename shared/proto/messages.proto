@@ -1,0 +1,128 @@
+syntax = "proto3";
+
+package texasholdem;
+
+option go_package = "texas-holdem-server/pkg/protocol";
+
+// 基础消息结构
+message GameMessage {
+    string type = 1;
+    string room_id = 2;
+    string player_id = 3;
+    bytes data = 4;
+    int64 timestamp = 5;
+}
+
+// 卡牌
+message Card {
+    int32 suit = 1;   // 0=Hearts, 1=Diamonds, 2=Clubs, 3=Spades
+    int32 rank = 2;   // 2-14 (2=2, ..., 14=Ace)
+}
+
+// 玩家信息
+message PlayerInfo {
+    string player_id = 1;
+    string name = 2;
+    string avatar = 3;
+    int32 seat_index = 4;
+    int64 chips = 5;
+    int64 current_bet = 6;
+    string state = 7;
+    string last_action = 8;
+    bool is_dealer = 9;
+    bool is_bot = 10;
+}
+
+// 房间信息
+message RoomInfo {
+    string room_id = 1;
+    string room_name = 2;
+    int64 small_blind = 3;
+    int64 big_blind = 4;
+    int32 max_players = 5;
+    int32 current_players = 6;
+    bool is_private = 7;
+    repeated PlayerInfo players = 8;
+}
+
+// 游戏状态
+message GameState {
+    string phase = 1;
+    int32 dealer_seat = 2;
+    int32 current_player_seat = 3;
+    int64 current_bet = 4;
+    int64 min_raise = 5;
+    int64 pot = 6;
+    repeated Card community_cards = 7;
+    repeated PlayerInfo players = 8;
+}
+
+// 玩家操作
+message PlayerAction {
+    string action = 1;  // fold, check, call, raise, all_in
+    int64 amount = 2;
+}
+
+// 发牌消息
+message DealCards {
+    string phase = 1;
+    repeated Card cards = 2;
+}
+
+// 手牌结果
+message HandResult {
+    message Winner {
+        string player_id = 1;
+        int64 amount = 2;
+        string hand_type = 3;
+        repeated Card best_hand = 4;
+    }
+    repeated Winner winners = 1;
+}
+
+// 聊天消息
+message ChatMessage {
+    string player_id = 1;
+    string player_name = 2;
+    string message = 3;
+    int64 timestamp = 4;
+}
+
+// 创建房间请求
+message CreateRoomRequest {
+    int64 small_blind = 1;
+    int64 big_blind = 2;
+    int32 max_players = 3;
+    bool is_private = 4;
+    string password = 5;
+}
+
+// 加入房间请求
+message JoinRoomRequest {
+    string room_id = 1;
+    string password = 2;
+}
+
+// 快速匹配请求
+message QuickMatchRequest {
+    int32 blind_level = 1;
+}
+
+// 买入请求
+message BuyInRequest {
+    int64 amount = 1;
+}
+
+// 轮到你操作
+message YourTurn {
+    int64 call_amount = 1;
+    int64 min_raise = 2;
+    int64 max_raise = 3;
+    float time_remaining = 4;
+}
+
+// 错误消息
+message ErrorMessage {
+    string code = 1;
+    string message = 2;
+}

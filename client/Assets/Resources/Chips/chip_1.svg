@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main chip -->
+  <circle cx="40" cy="40" r="38" fill="#FFFFFF"/>
+  
+  <!-- Edge ring -->
+  <circle cx="40" cy="40" r="38" fill="none" 
+          stroke="#000000" stroke-width="5" opacity="0.3"/>
+  <circle cx="40" cy="40" r="33" fill="none" 
+          stroke="#FFFFFF" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Edge stripes -->
+  <g stroke="#FFFFFF" stroke-width="3" opacity="0.7">
+    <line x1="40" y1="2" x2="40" y2="12"/>
+    <line x1="40" y1="78" x2="40" y2="68"/>
+    <line x1="2" y1="40" x2="12" y2="40"/>
+    <line x1="78" y1="40" x2="68" y2="40"/>
+  </g>
+  
+  <!-- Center circle -->
+  <circle cx="40" cy="40" r="18" fill="#FFFFFF"/>
+  <circle cx="40" cy="40" r="15" fill="#FFFFFF"/>
+  
+  <!-- Value text -->
+  <text x="40" y="46" font-family="Arial, sans-serif" 
+        font-size="14" font-weight="bold" text-anchor="middle" 
+        fill="#111111">1</text>
+</svg>

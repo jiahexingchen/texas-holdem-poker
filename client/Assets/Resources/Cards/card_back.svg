@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="140" height="190" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="checker" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="10" height="10" fill="#2E4A7D"/>
+      <rect x="10" width="10" height="10" fill="#3D5A8D"/>
+      <rect y="10" width="10" height="10" fill="#3D5A8D"/>
+      <rect x="10" y="10" width="10" height="10" fill="#2E4A7D"/>
+    </pattern>
+  </defs>
+  
+  <!-- Card background with pattern -->
+  <rect x="1" y="1" width="138" height="188" 
+        rx="10" ry="10" 
+        fill="url(#checker)"/>
+  
+  <!-- Border -->
+  <rect x="1" y="1" width="138" height="188" 
+        rx="10" ry="10" 
+        fill="none" stroke="#FFFFFF" stroke-width="3"/>
+  
+  <!-- Inner border -->
+  <rect x="8" y="8" width="124" height="174" 
+        rx="5" ry="5" 
+        fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.5"/>
+  
+  <!-- Center decoration -->
+  <circle cx="70" cy="95" r="25" 
+          fill="#FFFFFF"/>
+  <circle cx="70" cy="95" r="20" 
+          fill="#2E4A7D"/>
+  <text x="70" y="103" 
+        font-family="Arial, sans-serif" font-size="24" font-weight="bold"
+        text-anchor="middle" fill="#FFFFFF">♠</text>
+</svg>
