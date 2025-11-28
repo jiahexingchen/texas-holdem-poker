@@ -1,20 +1,19 @@
-name: Acquire Unity License
+name: Get Unity License
 
 on:
   workflow_dispatch:
 
 jobs:
-  acquire:
+  request-alf:
     runs-on: ubuntu-latest
     steps:
-      - name: Request Manual Activation File
-        uses: game-ci/unity-request-activation-file@v2
-        id: getManualLicenseFile
-        with:
-          unityVersion: 2022.3.22f1
-
-      - name: Upload Activation File
+      - name: Request activation file
+        uses: game-ci/unity-request-activation-file@main
+        id: getAlf
+        
+      - name: Upload ALF
         uses: actions/upload-artifact@v4
         with:
-          name: Unity_Activation_File
-          path: ${{ steps.getManualLicenseFile.outputs.filePath }}
+          name: Unity-ALF
+          path: ${{ steps.getAlf.outputs.filePath }}
+          retention-days: 1
